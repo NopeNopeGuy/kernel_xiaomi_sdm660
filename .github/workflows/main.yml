@@ -6,14 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: ccache
-      uses: hendrikmuhs/ccache-action@v1.2
-      
     - name: Checkout kernel source
       uses: actions/checkout@v2    
-    - name: Checkout submodules
-      uses: textbook/git-checkout-submodule-action@master
-      
+      with:
+       submodules: recursive
     - name: Android kernel build
       uses: lemniskett/android-kernel-actions@master
       id: build
